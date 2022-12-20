@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:chart="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts"
+             xmlns:model="clr-namespace:Chart_GettingStarted"
+             x:Class="Chart_GettingStarted.MainPage">
+
+
+    <chart:SfPyramidChart  ItemsSource="{Binding Data}" 
+                           ShowDataLabels="True" 
+                           EnableTooltip="True" 
+                           XBindingPath="Name" 
+                           YBindingPath="Value">
+        
+        <chart:SfPyramidChart.Title>
+            <Label Text="Pyramid Stages" HorizontalOptions="Fill"  HorizontalTextAlignment="Center" VerticalOptions="Center"/>
+        </chart:SfPyramidChart.Title>
+        
+        <chart:SfPyramidChart.BindingContext>
+            <model:ChartViewModel/>
+        </chart:SfPyramidChart.BindingContext>
+        
+        <chart:SfPyramidChart.Legend>
+            <chart:ChartLegend/>
+        </chart:SfPyramidChart.Legend>
+     
+    </chart:SfPyramidChart>
+
+</ContentPage>
