@@ -9,19 +9,16 @@
 
 **[XAML]**
 ```
-
 <ContentPage   
     . . .
     xmlns:chart="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts">
 
     <chart:SfPyramidChart/>
 </ContentPage>
- 
 ```
 
 **[C#]**
 ```
-
 using Syncfusion.Maui.Charts;
 . . .
 
@@ -41,7 +38,6 @@ Syncfusion.Maui.Core Nuget is a dependent package for all Syncfusion controls of
 
 **[C#]**
 ```
-
 using Microsoft.Maui;
 using Microsoft.Maui.Hosting;
 using Microsoft.Maui.Controls.Compatibility;
@@ -68,7 +64,6 @@ namespace ChartGettingStarted
         }
     }
 }
-
 ```
 
 ## Initialize view model
@@ -77,20 +72,17 @@ Now, let us define a simple data model that represents a data point in the chart
 
 **[C#]**
 ```
-
  public class Stage
 {
     public string Name { get; set; }
     public double Value { get; set; }
 }
-
 ```
 
 Next, create a view model class and initialize a list of `Model` objects as follows.
 
 **[C#]**
 ```
-
 public class ChartViewModel
 {
     public List<Stage> Data { get; set; }
@@ -106,7 +98,6 @@ public class ChartViewModel
         };
     }
 }
-
 ```
 
 Create a `ViewModel` instance and set it as the chart's `BindingContext`. This enables property binding from `ViewModel` class.
@@ -116,7 +107,6 @@ Add the namespace of `ViewModel` class to your XAML Page, if you prefer to set `
 
 **[XAML]**
 ```
-
 <ContentPage
     . . .
     xmlns:chart="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts"
@@ -128,15 +118,12 @@ Add the namespace of `ViewModel` class to your XAML Page, if you prefer to set `
         </chart:SfPyramidChart.BindingContext>
     </chart:SfPyramidChart>
 </ContentPage>
-
 ```
 
 **[C#]**
 ```
-
 ChartViewModel viewModel = new ChartViewModel();
 chart.BindingContext = viewModel;
-
 ```
 
 ## Populate chart with data
@@ -150,12 +137,10 @@ chart.BindingContext = viewModel;
                       YBindingPath="Value"/>
 . . .            
 </chart:SfPyramidChart>
-
 ```
 
 **[C#]**
 ```
-
 SfPyramidChart chart = new SfPyramidChart();
 ChartViewModel viewModel = new ChartViewModel();
 chart.BindingContext = viewModel;
@@ -163,7 +148,6 @@ chart.ItemsSource = viewModel.Data;
 chart.XBindingPath = "Name";
 chart.YBindingPath = "Value";
 this.Content = chart;
-
 ```
 
 ## Add a title
@@ -172,25 +156,21 @@ The title of the chart acts as the title to provide quick information to the use
 
 **[XAML]**
 ```
-
 <chart:SfPyramidChart>
     <chart:SfPyramidChart.Title>
         <Label Text="Pyramid Stages"/>
     </chart:SfPyramidChart.Title>
     . . .
 </chart:SfPyramidChart>
-
 ```
 
 **[C#]**
 ```
-
 SfPyramidChart chart = new SfPyramidChart();
 chart.Title = new Label
 {
     Text = "Pyramid Stages"
 };
-
 ``` 
 
 ## Enable the data labels
@@ -199,20 +179,16 @@ The [ShowDataLabels]() property of the chart can be used to enable data labels t
 
 **[XAML]**
 ```
-
 <chart:SfPyramidChart ShowDataLabels="True">
     . . .
 </chart:SfPyramidChart>
-
 ```
 
 **[C#]**
 ```
-
 SfPyramidChart chart = new SfPyramidChart();
 . . .
 chart.ShowDataLabels = true;
-
 ```
 
 ## Enable a legend
@@ -221,23 +197,19 @@ The legend provides information about the data point displayed in the pyramid ch
 
 **[XAML]**
 ```
-
 <chart:SfPyramidChart>
     . . .
     <chart:SfPyramidChart.Legend>
     <chart:ChartLegend/>
     </chart:SfPyramidChart.Legend>
 </chart:SfPyramidChart>
-
 ```
 
 **[C#]**
 ```
-
 SfPyramidChart chart = new SfPyramidChart();
 . . .
 chart.Legend = new ChartLegend();
-
 ```
 
 ## Enable Tooltip
@@ -246,27 +218,22 @@ Tooltips are used to show information about the segment, when mouse over on it. 
 
 **[XAML]**
 ```
-
 <chart:SfPyramidChart EnableTooltip="True">
     . . .
 </chart:SfPyramidChart>
-
 ```
 
 **[C#]**
 ```
-
 SfPyramidChart chart = new SfPyramidChart();
 . . .
 chart.EnableTooltip = true;
-
 ```
 
 The following code example gives you the complete code of above configurations.
 
 **[XAML]**
 ```
-
 <chart:SfPyramidChart ItemsSource="{Binding Data}" 
                       ShowDataLabels="True" 
                       EnableTooltip="True"
@@ -282,12 +249,10 @@ The following code example gives you the complete code of above configurations.
         <chart:ChartLegend/>
     </chart:SfPyramidChart.Legend>
 </chart:SfPyramidChart>
- 
 ```
 
 **[C#]**
 ```
-
 using Syncfusion.Maui.Charts;
 . . .
 public partial class MainPage : ContentPage
@@ -311,7 +276,6 @@ public partial class MainPage : ContentPage
         this.Content = chart;
     }
 }
-
 ```
 
 ![Pyramid chart in .NET MAUI Chart](MAUI_pyramid_chart.png)
