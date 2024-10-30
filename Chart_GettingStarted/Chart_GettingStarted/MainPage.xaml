@@ -6,18 +6,18 @@
              x:Class="Chart_GettingStarted.MainPage">
 
 
-    <chart:SfPyramidChart  ItemsSource="{Binding Data}" 
-                           ShowDataLabels="True" 
-                           EnableTooltip="True" 
-                           XBindingPath="Name" 
-                           YBindingPath="Value">
+    <chart:SfPyramidChart ItemsSource="{Binding Data}" 
+                          ShowDataLabels="True" 
+                          EnableTooltip="True" 
+                          XBindingPath="Name" 
+                          YBindingPath="Value">
         
         <chart:SfPyramidChart.Title>
             <Label Text="Pyramid Stages" HorizontalOptions="Fill"  HorizontalTextAlignment="Center" VerticalOptions="Center"/>
         </chart:SfPyramidChart.Title>
         
         <chart:SfPyramidChart.BindingContext>
-            <model:ChartViewModel/>
+            <model:StageViewModel/>
         </chart:SfPyramidChart.BindingContext>
         
         <chart:SfPyramidChart.Legend>

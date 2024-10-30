@@ -28,6 +28,7 @@ public partial class MainWindow : ContentPage
     {
         this.InitializeComponent();
         SfPyramidChart chart = new SfPyramidChart();
+        this.Content = chart;
     }
 }   
 ```
@@ -72,38 +73,38 @@ Now, let us define a simple data model that represents a data point in the chart
 
 **[C#]**
 ```
- public class Stage
+ public class StageModel
 {
     public string Name { get; set; }
     public double Value { get; set; }
 }
 ```
 
-Next, create a view model class and initialize a list of `Model` objects as follows.
+Next, create a StageViewModel class and initialize a list of `StageModel` objects as follows.
 
 **[C#]**
 ```
-public class ChartViewModel
+public class StageViewModel
 {
-    public List<Stage> Data { get; set; }
+    public List<StageModel> Data { get; set; }
 
-    public ChartViewModel()
+    public StageViewModel()
     {
-        Data = new List<Stage>()
+        Data = new List<StageModel>()
         {
-            new Stage(){Name = "Stage A", Value = 12},
-            new Stage(){Name = "Stage B", Value = 21},
-            new Stage(){Name = "Stage C", Value = 29},
-            new Stage(){Name = "Stage D", Value = 37},
+            new StageModel(){Name = "Stage A", Value = 12},
+            new StageModel(){Name = "Stage B", Value = 21},
+            new StageModel(){Name = "Stage C", Value = 29},
+            new StageModel(){Name = "Stage D", Value = 37},
         };
     }
 }
 ```
 
-Create a `ViewModel` instance and set it as the chart's `BindingContext`. This enables property binding from `ViewModel` class.
+Create a `StageViewModel` instance and set it as the chart's `BindingContext`. This enables property binding from `StageViewModel` class.
 
 > **_Note:_**
-Add the namespace of `ViewModel` class to your XAML Page, if you prefer to set `BindingContext` in XAML.
+Add the namespace of `StageViewModel` class to your XAML Page, if you prefer to set `BindingContext` in XAML.
 
 **[XAML]**
 ```
@@ -114,7 +115,7 @@ Add the namespace of `ViewModel` class to your XAML Page, if you prefer to set `
 
     <chart:SfPyramidChart>
         <chart:SfPyramidChart.BindingContext>
-        <model:ChartViewModel/>
+            <model:StageViewModel/>
         </chart:SfPyramidChart.BindingContext>
     </chart:SfPyramidChart>
 </ContentPage>
@@ -122,8 +123,10 @@ Add the namespace of `ViewModel` class to your XAML Page, if you prefer to set `
 
 **[C#]**
 ```
-ChartViewModel viewModel = new ChartViewModel();
+SfPyramidChart chart = new SfPyramidChart();
+StageViewModel viewModel = new StageViewModel();
 chart.BindingContext = viewModel;
+this.Content = chart;
 ```
 
 ## Populate chart with data
@@ -142,7 +145,7 @@ chart.BindingContext = viewModel;
 **[C#]**
 ```
 SfPyramidChart chart = new SfPyramidChart();
-ChartViewModel viewModel = new ChartViewModel();
+StageViewModel viewModel = new StageViewModel();
 chart.BindingContext = viewModel;
 chart.ItemsSource = viewModel.Data;
 chart.XBindingPath = "Name";
@@ -243,7 +246,7 @@ The following code example gives you the complete code of above configurations.
         <Label Text="Pyramid Stages"/>
     </chart:SfPyramidChart.Title>
     <chart:SfPyramidChart.BindingContext>
-        <model:ChartViewModel/>
+        <model:StageViewModel/>
     </chart:SfPyramidChart.BindingContext>
     <chart:SfPyramidChart.Legend>
         <chart:ChartLegend/>
@@ -265,7 +268,7 @@ public partial class MainPage : ContentPage
             Text = "Pyramid Stages"
         };
         chart.Legend = new ChartLegend();
-        ChartViewModel viewModel = new ChartViewModel();
+        StageViewModel viewModel = new StageViewModel();
         chart.BindingContext = viewModel;
 
         chart.ItemsSource = viewModel.Data;
