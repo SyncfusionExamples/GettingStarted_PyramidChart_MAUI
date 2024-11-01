@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Chart_GettingStarted
 {
-    public class Stage
+    public class StageModel
     {
         public string Name { get; set; }
         public double Value { get; set; }
