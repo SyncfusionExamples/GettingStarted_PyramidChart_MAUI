@@ -8,7 +8,7 @@ namespace Chart_GettingStarted
 {
     public class StageModel
     {
-        public string Name { get; set; }
+        public string Name { get; set; } = String.Empty;
         public double Value { get; set; }
     }
 }
