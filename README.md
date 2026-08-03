@@ -1,5 +1,3 @@
-# Getting Started with .NET MAUI Chart(SfPyramidChart)
-
 ## Creating an application using the .NET MAUI chart(SfPyramidChart)
 
 1. Create a new .NET MAUI application in Visual Studio.
